@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amuda Taiwo Portfolio</title>
+  
+  <!-- Google tag (gtag.js) -->  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QWT00QE9L"></script> 
+  <script>  
+  window.dataLayer = window.dataLayer || [];  
+  function gtag(){dataLayer.push(arguments);}  
+  gtag('js', new Date());  
+  
+  gtag('config', 'G-0QWT00QE9L');  
+</script>
+
+  <style>
+    :root{
+      --bg:#07070a;
+      --card:rgba(255,255,255,.05);
+      --border:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.60);
+      --muted2:rgba(255,255,255,.45);
+      --grad: linear-gradient(90deg, #2563EB, #4F46E5);;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;}
+    body{background:var(--bg); color:var(--text);}
+
+    a{color:inherit; text-decoration:none}
+    button{cursor:pointer; border:none; background:none; color:inherit}
+
+    .container{
+  width: 92%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+   /* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:99;
+      background:rgba(0,0,0,.65);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .logo{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--card);
+      font-weight:800;
+      font-size:13px;
+    }
+    .dot{height:10px; width:10px; border-radius:999px; background:var(--grad);}
+    .nav-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* 🔥 Apply to links now */
+.nav-links a{
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+  color:var(--muted);
+  border:1px solid transparent;
+  transition:.2s;
+}
+
+/* Hover */
+.nav-links a:hover{
+  background:var(--card);
+  color:var(--text);
+}
+
+/* Active page */
+.nav-links a.active{
+  background:var(--grad);
+  color:white;
+}
+    .btn{
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      transition:.2s;
+      transition: all 0.3s ease;
+.btn:hover {
+  transform: scale(1.05);
+}
+    }
+    .btn.primary{background:var(--grad); color:white;}
+    .btn.ghost{background:var(--card); border:1px solid var(--border); color:var(--text);}
+    .btn:hover{opacity:.95;}
+    
+    .transform{
+  margin-top:50px;
+}
+
+.transform-img img{
+  width:100%;
+  border-radius:24px;
+  object-fit:cover;
+}
+
+.steps{
+  margin-top:15px;
+  display:grid;
+  gap:8px;
+  font-size:14px;
+}
+
+.steps p{
+  background:var(--card);
+  padding:10px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+    
+
+
+    /* SECTIONS */
+    .section{
+  display:none;
+  padding:60px 0;
+}
+    .section.active{display:block;}
+
+    .badge{
+      display:inline-flex;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--card);
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .title{
+      font-size:34px;
+      font-weight:900;
+      line-height:1.1;
+      margin-top:10px;
+    }
+    .subtitle{
+      margin-top:10px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+      max-width:650px;
+    }
+
+    .grid{
+      display:grid;
+      gap:14px;
+    }
+    .grid.two{grid-template-columns:1fr;}
+    .grid.three{grid-template-columns:1fr;}
+    .grid.four{grid-template-columns:1fr;}
+
+    @media(min-width:800px){
+  .grid.two{grid-template-columns:1.3fr .7fr;}
+  .grid.three{grid-template-columns:repeat(3, 1fr);}
+  .grid.four{grid-template-columns:repeat(4, 1fr);}
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:16px;
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+  transition: all 0.3s ease;
+}
+.project-card img{width:100%;border-radius:16px;margin-bottom:10px}
+.small{color:var(--muted);font-size:13px}
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+    .media{
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), transparent);
+      display:grid;
+      place-items:center;
+      color:rgba(255,255,255,.75);
+      font-weight:800;
+      font-size:12px;
+      overflow: hidden;
+    }
+
+    .small{font-size:12px; color:var(--muted2);}
+    .h3{font-weight:900; font-size:15px;}
+    .muted{color:var(--muted); font-size:13px; line-height:1.6;}
+
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+
+    .search{
+      display:flex; gap:10px; align-items:center;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--card);
+      margin:18px auto;
+      max-width:620px;
+    }
+    .search input{
+      width:100%;
+      background:transparent;
+      border:none;
+      outline:none;
+      color:white;
+      font-size:13px;
+    }
+    .search input::placeholder{color:rgba(255,255,255,.30);}
+
+    .filters{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:18px;}
+    .filters button{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--card);
+      font-weight:800;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .filters button.active{background:var(--grad); color:white; border-color:transparent;}
+
+.cta{
+  margin-top:40px;
+  padding:50px 20px;
+  border-radius:30px;
+  text-align:center;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  border:1px solid var(--border);
+}
+
+.cta-inner h2{
+  font-size:28px;
+  font-weight:900;
+}
+
+.cta-inner p{
+  margin-top:10px;
+  color:var(--muted);
+}
+
+.cta-buttons{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.results{
+  text-align:center}
+.results-grid {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 20px;
+}
+
+.result-box {
+  flex: 1;
+}
+
+.result-box h2 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: #2563EB; /* your accent color */
+  margin-bottom: 10px;
+}
+
+.result-box p {
+  font-family: Georgia;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #ccc;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .results-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+.result-box {
+  transition: transform 0.3s ease;
+}
+
+.result-box:hover {
+  transform: translateY(-5px);
+}
+
+    .footer{
+  margin-top:50px;
+  padding:40px 0;
+  background:rgba(0,0,0,.6);
+  border-top:1px solid var(--border);
+}
+
+.footer .grid{
+  gap:30px;
+}
+
+.footer h3{
+  font-size:16px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.footer h4{
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:10px;
+  color:var(--muted);
+}
+
+.footer p{
+  font-size:13px;
+  color:var(--muted2);
+  line-height:1.6;
+  margin:4px 0;
+  cursor:pointer;
+}
+
+.footer p:hover{
+  color:var(--text);
+}
+
+.footer .btn{
+  margin-top:10px;
+}
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <button class="logo" onclick="go('home')">
+          <span class="dot"></span>
+          AMUDA TAIWO
+        </button>
+
+
+
+        <a class="btn primary" target="_blank"
+          href="https://wa.me/2348169518870?text=Hi%20Amuda%20Taiwo%2C%20I%20want%20to%20work%20with%20you" 
+          onclick="gtag('event','whatsapp_click',{
+  event_category:'engagement',
+  event_label:'whatsapp_button'
+})">
+          Let’s Talk
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <section id="home" class="section active">
+    <div class="container">
+      <div class="grid two">
+        <div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="badge"> Available for work</span>
+          </div>
+
+          <h1 class="title">Who is Amuda Taiwo?</h1>
+          <p style="margin-top:10px; font-weight:800; color:rgba(255,255,255,.80);">
+            A Social Media Manager
+          </p>
+          <p class="subtitle">
+            Amuda Taiwo is a versatile Social Media Manager and digital strategist who specializes in building brand identity and driving organic growth across online platforms. 
+            <p class="subtitle">Known for a blend of creative content creation and data-driven analysis, Taiwo focuses on helping businesses transform their digital presence into active, engaged communities.
+            </p>
+
+          <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;"> 
+
+        </div>
+        </div>
+
+        <div class="card">
+          <p class="h3">Get In Touch</p>
+
+          <div class="card" style="margin-top:14px; background:rgba(0,0,0,.25);">
+            <p class="small">Phone</p>
+            <p style="font-weight:900; margin-top:4px;">+2349137154126</p>
+
+            <p class="small" style="margin-top:12px;">Facebook</p>
+            <a class="muted" target="_blank" href="https://www.facebook.com/share/1FyPtpNDkz/">
+              Amuda Taiwo
+            </a>
+
+            <p class="small" style="margin-top:12px;">Email Address</p>
+            <a class="muted" target="_blank" href="amudataiwo42@gmail.com">
+              amudataiwo42@gmail.com
+            </a>
+             <p class="small" style="margin-top:12px;">Nigeria</p>
+          </div>
+        </div>
+      </div>
+
+<section class="fade-in" style="margin-top:80px;">
+  <h2 class="title" style="font-size:30px;">My Skills</h2>
+
+  <div style="margin-top:20px; display:grid; gap:18px;">
+
+    <div>
+      <p class="small">Content Strategy & Planning</p>
+      <div style="background:rgba(255,255,255,.1); border-radius:900px; height:8px;">
+        <div style="width:95%; height:8px; border-radius:900px; background:linear-gradient(90deg, #2563EB, #4F46E5);"></div>
+      </div>
+    </div>
+
+    <div>
+      <p class="small">Copywriting & Storytelling</p>
+      <div style="background:rgba(255,255,255,.1); border-radius:999px; height:8px;">
+        <div style="width:85%; height:8px; border-radius:999px; background:linear-gradient(90deg, #2563EB, #4F46E5);"></div>
+      </div>
+    </div>
+
+    <div>
+      <p class="small">Video Editing</p>
+      <div style="background:rgba(255,255,255,.1); border-radius:999px; height:8px;">
+        <div style="width:90%; height:8px; border-radius:999px; background:linear-gradient(90deg, #2563EB, #4F46E5);"></div>
+      </div>
+    </div>
+    
+    <div>
+      <p class="small">Competitor Benchmarking</p>
+      <div style="background:rgba(255,255,255,.1); border-radius:999px; height:8px;">
+        <div style="width:90%; height:8px; border-radius:999px; background:linear-gradient(90deg, #2563EB, #4F46E5);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fade-in" style="margin-top:80px;">
+  <h2 class="title" style="font-size:28px;">My Services</h2>
+
+  <div class="grid three" style="margin-top:20px;">
+
+    <div class="card">
+      <p class="h3">Strategy & Planning</p>
+      <p class="muted" style="margin-top:8px;">
+        Social Media Audits, Competitor Analysis, Content Pillars & Strategy, Platform Selection.
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="h3">Content Creation & Curation</p>
+      <p class="muted" style="margin-top:8px;">
+        Graphic Design, Short-Form Video Production, Copywriting & Curating UGC.
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="h3">Community Management & Engagement</p>
+      <p class="muted" style="margin-top:8px;">
+         Inbox Management, Proactive Engagement, Reputation Management & Spam Moderation.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div class="transform">
+  <div class="grid two">
+
+    <!-- TEXT SIDE -->
+    <div>
+      <span class="badge">My Process</span>
+      <h2 class="title" style="font-size:28px;">
+        Here’s how I’ll transform your brand
+      </h2>
+
+      <p class="subtitle">
+        If I was hired as your Social Media Manager, this is how I take your brand from average to premium:
+      </p>
+
+      <div class="steps">
+        <p>✔ Auditing and optimizing your profiles</p>
+        <p>✔ Planning a high-impact content strategy</p>
+        <p>✔ Creating custom, high-end visuals</p>
+        <p>✔ Writing engaging captions</p>
+        <p>✔ Managing your community and growth</p>
+        <p>✔ Tracking performance with clear data</p>
+      </div>
+    </div>
+    </div>
+</div>
+<section class="fade-in" style="margin-top:80px;">
+  <h2 class="title" style="font-size:30px;">Projects</h2>
+  <div class="grid three" style="margin-top:20px;">
+    <div class="card project-card"><img src="lay.png">
+    <h3>Brand Page</h3>
+    <p class="small">Clean layout to attract clients.</p>
+    </div>
+    <div class="card project-card"><img src="days.png">
+    <h3>Content Plan</h3>
+    <p class="small">Structured Posting System.</p>
+    </div>
+    <div class="card project-card"><img src="after.png">
+    <h3>Growth</h3>
+    <p class="small">Improved engagement.</p>
+    </div>
+  </div>
+</section>
+
+  </div>
+</div>
+
+<section class="results" class="fade-in" style="margin-top:80px;">
+
+
+  <div class="container results-grid">
+    <div class="result-box"><h2>8K+</h2><p>Followers</p></div>
+    <div class="result-box"><h2>4x</h2><p>Engagement</p></div>
+    <div class="result-box"><h2>25+</h2><p>Campaigns</p></div>
+  </div>
+</section>
+</section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+  <div class="container">
+    <div class="grid three">
+
+      <div>
+        <h3>AMUDA TAIWO</h3>
+        <p>Your trusted Media Manager. Grow your business through transforming intentional, engaging Social Presence.</p>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p>📞 +2349137154126</p>
+        <p>📧 amudataiwo42@gmail.com</p>
+        <a href="https://wa.me/2349137154126" target="_blank" class="btn primary">
+          WhatsApp Me
+        </a>
+        <a href="amudataiwo42@gmail.com" target="_blank" class=" btn ghost">
+          Email
+        </a>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px; text-align:center;">
+      © <span id="year"></span> AMUDA TAIWO. All rights reserved.
+    </p>
+  </div>
+</div>
+  </div>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+
+    // PAGE NAVIGATION
+function go(page){
+
+  // remove active class
+  document.querySelectorAll(".section").forEach(function(s){
+    s.classList.remove("active");
+  });
+
+  // show selected section
+  var target = document.getElementById(page);
+  if(target){
+    target.classList.add("active");
+  }
+
+// 🔥 FIX NAV ACTIVE STATE
+  document.querySelectorAll(".nav-links button").forEach(function(btn){
+    btn.classList.remove("active");
+  });
+
+  var activeBtn = document.getElementById("nav-" + page);
+  if(activeBtn){
+    activeBtn.classList.add("active");
+  }
+
+  // 🔥 FIX: scroll to top
+  window.scrollTo(0, 0);
+}
+
+
+    // INIT
+    renderDesigns();
+    renderWebsites();
+    renderEbooks();
+    function sendMessage() {
+  const name = document.querySelector('input[placeholder="Your name"]').value;
+  const service = document.querySelector('input[placeholder="Service (Design/Web/E-book)"]').value;
+  const message = document.querySelector('textarea').value;
+
+  const fullMessage = 
+`Hello Amuda Oluwaferanmi,
+
+My Name: ${name}
+Service Needed: ${service}
+
+Message:
+${message}`;
+
+  const encodedMessage = encodeURIComponent(fullMessage);
+
+  const whatsappLink = 
+  "https://wa.me/2348169518870?text=" + encodedMessage;
+
+gtag('event', 'whatsapp_click', {
+  event_category: 'engagement'
+});
+
+window.open(whatsappLink, "_blank");}
+  </script>
+  <script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  faders.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
